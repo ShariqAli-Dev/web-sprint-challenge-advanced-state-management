@@ -1,9 +1,24 @@
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 export const initialState = {
-}
+  smurfs: [],
+  loading: false,
+  error: '',
+};
 
-const reducer = ()=>{
-}
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+};
+
+export const store = createStore(
+  reducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
 export default reducer;
