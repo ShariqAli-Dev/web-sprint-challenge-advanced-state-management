@@ -17,6 +17,7 @@ const reducer = (state = initialState, action) => {
         smurfs: [...state.smurfs, ...action.payload],
       };
     case GOT_ERROR:
+      console.log('Axios Failed: ', action.payload);
       return {
         ...state,
         error: action.payload,
