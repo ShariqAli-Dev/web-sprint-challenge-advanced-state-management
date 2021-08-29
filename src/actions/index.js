@@ -7,14 +7,11 @@ export const ADD_SMURF = 'ADD_SMURF';
 export const SET_ERROR = 'SET_ERROR';
 
 export const fetchSmurfs = () => (dispatch) => {
+  console.log('I am being aclleds');
   axios
     .get('http://localhost:3333/smurfs')
-    .then((res) => {
-      dispatch(gotSmurfs(res.data));
-    })
-    .catch((err) => {
-      dispatch(gotError(err.message));
-    });
+    .then((res) => dispatch(gotSmurfs(res.data)))
+    .catch((err) => dispatch(gotError(err.message)));
 };
 
 export const gotSmurfs = (response) => {
@@ -25,10 +22,10 @@ export const gotError = (errorMessage) => {
   return { type: GOT_ERROR, payload: errorMessage };
 };
 
-export const addSmurf = (name, nickname, position, summary, id) => {
+export const addSmurf = (newSmurf) => {
   return {
     type: ADD_SMURF,
-    payload: { name, nickname, position, summary, id },
+    payload: newSmurf,
   };
 };
 
