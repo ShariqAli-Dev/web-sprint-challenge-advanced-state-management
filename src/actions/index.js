@@ -3,6 +3,8 @@ import axios from 'axios';
 export const GET_SMURFS = 'GET_SMURFS';
 export const GOT_SMURFS = 'GOT_SMURFS';
 export const GOT_ERROR = 'GOT_ERROR';
+export const ADD_SMURF = 'ADD_SMURF';
+export const SET_ERROR = 'SET_ERROR';
 
 export const fetchSmurfs = () => (dispatch) => {
   axios
@@ -21,6 +23,17 @@ export const gotSmurfs = (response) => {
 
 export const gotError = (errorMessage) => {
   return { type: GOT_ERROR, payload: errorMessage };
+};
+
+export const addSmurf = (name, nickname, position, summary, id) => {
+  return {
+    type: ADD_SMURF,
+    payload: { name, nickname, position, summary, id },
+  };
+};
+
+export const setError = (errorMessage) => {
+  return { type: SET_ERROR, payload: errorMessage };
 };
 
 //Task List:

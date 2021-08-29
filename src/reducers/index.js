@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { GOT_SMURFS, GOT_ERROR, ADD_SMURF, SET_ERROR } from '../actions';
 
 export const initialState = {
   smurfs: [],
@@ -10,6 +11,17 @@ export const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case GOT_SMURFS:
+      return {
+        ...state,
+        smurfs: [...state.smurfs, action.payload],
+      };
+    case GOT_ERROR:
+      return state;
+    case ADD_SMURF:
+      return state;
+    case SET_ERROR:
+      return state;
     default:
       return state;
   }
