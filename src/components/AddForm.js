@@ -12,7 +12,7 @@ const AddForm = (props) => {
   });
   const { error } = props;
 
-  let errorMessage = error;
+  const [errorMessage, setErrorMessage] = useState(error);
 
   const handleChange = (e) => {
     setState({
@@ -25,16 +25,21 @@ const AddForm = (props) => {
     e.preventDefault();
     if (state.name === '' || state.position === '' || state.nickname === '') {
       setError('Name, position and nickname fields are required.');
+      setErrorMessage('Name, position and nickname fields are required.');
+      return;
     }
 
-    // addSmurf({ ...state, id: nanoid() });
-    setError('apple pie');
+    props.addSmurf({ ...state, id: nanoid() });
   };
 
   return (
     <section>
       <h2>Add Smurf</h2>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
         <div className='form-group'>
           <label htmlFor='name'>Name:</label>
           <br />

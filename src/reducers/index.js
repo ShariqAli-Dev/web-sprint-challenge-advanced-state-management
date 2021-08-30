@@ -10,6 +10,7 @@ export const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+  console.log('REDUCER IS HAPPENING FOR', action.type);
   switch (action.type) {
     case GOT_SMURFS:
       return {

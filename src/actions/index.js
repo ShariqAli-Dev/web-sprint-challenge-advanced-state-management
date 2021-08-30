@@ -25,7 +25,6 @@ export const gotError = () => {
 };
 
 export const addSmurf = (newSmurf) => {
-  console.log('button is being clicked', newSmurf);
   return {
     type: ADD_SMURF,
     payload: newSmurf,
