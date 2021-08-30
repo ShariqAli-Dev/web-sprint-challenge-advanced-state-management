@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addSmurf, setError, gotError } from '../actions';
-
+import { nanoid } from 'nanoid';
 const AddForm = (props) => {
   const [state, setState] = useState({
     name: '',
     position: '',
     nickname: '',
     description: '',
+    id: nanoid(),
   });
   const { error } = props;
 
@@ -28,7 +29,7 @@ const AddForm = (props) => {
       return;
     }
 
-    props.addSmurf({ state });
+    props.addSmurf(state);
     setError('');
     setErrorMessage('');
   };
