@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addSmurf, setError, gotError } from '../actions';
-import { nanoid } from 'nanoid';
 
 const AddForm = (props) => {
   const [state, setState] = useState({
@@ -29,7 +28,7 @@ const AddForm = (props) => {
       return;
     }
 
-    props.addSmurf({ ...state, id: nanoid() });
+    props.addSmurf({ state });
     setError('');
     setErrorMessage('');
   };
@@ -91,7 +90,7 @@ const AddForm = (props) => {
             Error: {errorMessage}
           </div>
         )}
-        <button>Submit Smurf</button>
+        <button role='submission'>Submit Smurf</button>
       </form>
     </section>
   );
