@@ -10,7 +10,6 @@ export const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  console.log('REDUCER IS HAPPENING FOR', action.type);
   switch (action.type) {
     case GOT_SMURFS:
       return {
@@ -18,16 +17,14 @@ const reducer = (state = initialState, action) => {
         smurfs: [...state.smurfs, ...action.payload],
       };
     case GOT_ERROR:
-      console.log(state.error);
+      alert(state.error);
       return state;
     case ADD_SMURF:
-      console.log(action.payload);
       return {
         ...state,
         smurfs: [...state.smurfs, action.payload],
       };
     case SET_ERROR:
-      console.log('set error being called');
       return {
         ...state,
         error: action.payload,

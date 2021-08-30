@@ -30,6 +30,8 @@ const AddForm = (props) => {
     }
 
     props.addSmurf({ ...state, id: nanoid() });
+    setError('');
+    setErrorMessage('');
   };
 
   return (
