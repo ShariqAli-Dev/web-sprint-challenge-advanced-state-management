@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addSmurf, setError, gotError } from '../actions';
-import { nanoid } from 'nanoid';
+
 const AddForm = (props) => {
   const [state, setState] = useState({
     name: '',
     position: '',
     nickname: '',
     description: '',
-    id: nanoid(),
+    id: this.name + this.position + this.nickname,
   });
   const { error } = props;
 
