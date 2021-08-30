@@ -90,7 +90,7 @@ const AddForm = (props) => {
             Error: {errorMessage}
           </div>
         )}
-        <button role='submission'>Submit Smurf</button>
+        <button type='submit'>Submit Smurf</button>
       </form>
     </section>
   );
