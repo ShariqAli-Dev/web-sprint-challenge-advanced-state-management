@@ -8,7 +8,6 @@ const AddForm = (props) => {
     position: '',
     nickname: '',
     description: '',
-    id: this.name + this.position + this.nickname,
   });
   const { error } = props;
 
