@@ -10,18 +10,22 @@ export const fetchSmurfs = () => (dispatch) => {
   axios
     .get('http://localhost:3333/smurfs')
     .then((res) => dispatch(gotSmurfs(res.data)))
-    .catch((err) => dispatch(gotError(err.message)));
+    .catch((err) => {
+      dispatch(setError(err.message));
+      dispatch(gotError());
+    });
 };
 
 export const gotSmurfs = (response) => {
   return { type: GOT_SMURFS, payload: response };
 };
 
-export const gotError = (errorMessage) => {
-  return { type: GOT_ERROR, payload: errorMessage };
+export const gotError = () => {
+  return { type: GOT_ERROR };
 };
 
 export const addSmurf = (newSmurf) => {
+  console.log('button is being clicked', newSmurf);
   return {
     type: ADD_SMURF,
     payload: newSmurf,

@@ -16,13 +16,6 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <button
-          onClick={() => {
-            this.props.addSmurf({ name: 'shariq' });
-          }}
-        >
-          Add smurf
-        </button>
         <Header />
 
         <main>

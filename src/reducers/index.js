@@ -17,17 +17,16 @@ const reducer = (state = initialState, action) => {
         smurfs: [...state.smurfs, ...action.payload],
       };
     case GOT_ERROR:
-      console.log('Axios Failed: ', action.payload);
-      return {
-        ...state,
-        error: action.payload,
-      };
+      console.log(state.error);
+      return state;
     case ADD_SMURF:
+      console.log(action.payload);
       return {
         ...state,
         smurfs: [...state.smurfs, action.payload],
       };
     case SET_ERROR:
+      console.log('set error being called');
       return {
         ...state,
         error: action.payload,
